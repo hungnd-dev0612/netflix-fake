@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import requests from './request'
 import "./Banner.css"
 function Banner() {
   const [movie, setMovie] = useState();
