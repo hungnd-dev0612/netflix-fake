@@ -6,7 +6,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const [movie, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
   // const [trailer]
-  const imgUrl = " ";
+  const imgUrl = "https://image.tmdb.org/t/p/original";
   useEffect(() => {
     async function fetchData() {
       const request = await instance.get(fetchUrl);
@@ -14,9 +14,11 @@ function Row({ title, fetchUrl, isLargeRow }) {
       setMovie(request.data.results);
       return request;
     }
+
     fetchData();
+    
   }, [fetchUrl])
-  // console.table(movie);
+  console.log(movie);
   function showTrailerMovie(movie) {
     if (trailerUrl) {
       setTrailerUrl("")
@@ -40,7 +42,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
         console.log(error);
       })
     }
-    // console.log(getAfterV);
   }
   const opts = {
     height: "390",
@@ -49,11 +50,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
       autoplay: 1,
     }
   };
+
   return (
     <div className="row">
       <h2 className="row_title">{title}</h2>
       <div className="row_posters">
         {movie?.map((movie) =>
+        
           <img
             key={movie.id}
             onClick={() => showTrailerMovie(movie)}
