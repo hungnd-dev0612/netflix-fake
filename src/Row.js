@@ -6,7 +6,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const [movie, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
   // const [trailer]
-  const imgUrl = "https://image.tmdb.org/t/p/original";
+  const imgUrl = " ";
   useEffect(() => {
     async function fetchData() {
       const request = await instance.get(fetchUrl);
